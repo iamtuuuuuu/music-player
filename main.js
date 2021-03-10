@@ -21,7 +21,13 @@ const app = {
     isPlaying: false,
     isRandom: false,
     isRepeat: false,
-    settings
+    config: JSON.parse(localStorage.getItem(PlAYER_STORAGE_KEY)) || {},
+
+    setConfig: function(key, value) {
+        this.config[key] = value;
+        localStorage.setItem(PlAYER_STORAGE_KEY, JSON.stringify(this.config));
+    },
+
     songs: [
         {
         name: "What You Waiting For",
@@ -116,7 +122,7 @@ const app = {
 
         cdThumbAnimate.pause();
 
-        // Xử lý phings to, thu nhỏ CD
+        // Xử lý phongs to, thu nhỏ CD
         document.onscroll = function() {
             const newCdWidth = cdWidth - window.scrollY;
             cd.style.width = newCdWidth>0 ?newCdWidth + 'px' : 0;
@@ -190,12 +196,14 @@ const app = {
         //randomBtn
         randomBtn.onclick = function() {
             _this.isRandom = !_this.isRandom;
+            _this.setConfig('isRandom', _this.isRandom);
             randomBtn.classList.toggle('active', _this.isRandom);
         }
 
         //repeat
         repeatBtn.onclick = function() {
             _this.isRepeat = !_this.isRepeat;
+            _this.setConfig('isRepeat', _this.isRepeat);
             repeatBtn.classList.toggle('active', _this.isRepeat);
         }
 
@@ -235,6 +243,11 @@ const app = {
         audio.src = this.currentSong.path;
     }, 
 
+    loadConfig: function() {
+        this.isRandom = this.config.isRandom;
+        this.isRepeat = this.config.isRepeat;
+    },
+
     nextSong: function() {
         this.currentIndex++;
         if(this.currentIndex >= this.songs.length) {
@@ -271,6 +284,9 @@ const app = {
     
 
     start: function() {
+        //load config
+        this.loadConfig();
+
         // Dinh nghia cac thuoc tinh cho obj
         this.defineProperties();
 
@@ -281,6 +297,13 @@ const app = {
         this.loadCurrentSong();
         // Render
         this.render();
+
+
+        // Hiển thị trạng thái ban đâuf
+        randomBtn.classList.toggle('active', this.isRandom);
+        repeatBtn.classList.toggle('active', this.isRepeat);
+
+
     } 
 }
 
