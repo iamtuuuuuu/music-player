@@ -30,6 +30,18 @@ const app = {
 
     songs: [
         {
+            name: "On The Ground",
+            singer: "ROSÉ",
+            path: "http://vnso-zn-24-tf-mp3-s1-zmp3.zadn.vn/4344b51a465daf03f64c/1844046410301085847?authen=exp=1615732620~acl=/4344b51a465daf03f64c/*~hmac=7d46f9f9eaf30c21ffef811e309dde6b",
+            image: "https://photo-playlist-zmp3.zadn.vn/s1/v2/background-playlist?src=HavtoclCgWuG7IRi1gLBrNrYnmbDvmARBYxFH06W4zjWPDn42g17ssigsbuA-4JPCdVO3rFzJzreTOKFKlzAtMbot5m2-43KTNcU0mw-4jea6j861AiLs3fYWGu2vLpRToo60bghJP0vOgnEGDrgcpbnjaGLz7pMVG&size=thumb_240_240"
+        },
+        {
+            name: "Gone",
+            singer: "ROSÉ",
+            image: "https://photo-playlist-zmp3.zadn.vn/s1/v2/background-playlist?src=HavtoclCgWuG7IRi1gLBrNrYnmbDvmARBYxFH06W4zjWPDn42g17ssigsbuA-4JPCdVO3rFzJzreTOKFKlzAtMbot5m2-43KTNcU0mw-4jea6j861AiLs3fYWGu2vLpRToo60bghJP0vOgnEGDrgcpbnjaGLz7pMVG&size=thumb_240_240",
+            path: "http://vnso-zn-23-tf-mp3-s1-zmp3.zadn.vn/0c75f62b056cec32b57d/5402622460269324947?authen=exp=1615732747~acl=/0c75f62b056cec32b57d/*~hmac=be9e01dc6fcc2308b5984022e8da1d8b"
+        },
+        {
         name: "What You Waiting For",
         singer: "SOMI",
         path: "http://vnno-zn-5-tf-mp3-s1-zmp3.zadn.vn/aceb8ca123e6cab893f7/3875516918820080847?authen=exp=1615559270~acl=/aceb8ca123e6cab893f7/*~hmac=5e7088e3778eb9bd2d3fb581cf1e21ee",
@@ -116,8 +128,8 @@ const app = {
         const cdThumbAnimate = cdThumb.animate([
             { transform: 'rotate(360deg)'}
         ], {
-            duration: 10000, //10second
-            interations: Infinity
+            duration: 8888, //10second
+            iterations: Infinity
         })
 
         cdThumbAnimate.pause();
